@@ -1,0 +1,35 @@
+<?php
+session_start();
+$prinID="boss";
+$prinPWD="boss1";
+$teacherID="lilboss";
+$teacherPWD="lilboss1";
+$stuID="kid";
+$stuPWD="kid1";
+
+
+$pid=$_POST["id"];
+$ppwd=$_POST["pwd"];
+$tid=$_POST["id"];
+$tpwd=$_POST["pwd"];
+$sid=$_POST["id"];
+$spwd=$_POST["pwd"];
+
+
+if(($prinID==$pid)&&($prinPWD==$ppwd)){
+    $_SESSION["login"]="prin";
+        header("Location:prin.php");
+} 
+elseif(($teacherID==$tid)&&($teacherPWD==$tpwd)){
+    $_SESSION["login"]="teacher";
+    header("Location:teacher.php");
+}
+elseif(($stuID==$sid)&&($stuPWD==$spwd)){
+    $_SESSION["login"]="stu";
+    header("Location:stu.php");
+}
+else{
+    $_SESSION["login"]="No";
+    header("Location:fail.php");
+}
+?>
